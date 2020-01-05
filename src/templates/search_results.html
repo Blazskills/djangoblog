@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+ {% load static %}
+{% block content %}
+
+
+{% for post in queryset %}
+<h2>   This is the result of your search  </h2>
+<a href='{{post.get_absolute_url}}'>  {{post.title}}  </a>
+</br>
+{% empty %}
+   <center> <p style="font-size:80px; color:red;" >Sorry, No result found</p></center>
+
+{% endfor %}
+
+
+{% endblock %}
+
+{% comment %} another method  {% endcomment %}
+{% comment %} <ul>
+  {% if queryset %}
+    {% for post in queryset %}
+     <h2>   This is the result of your search  </h2>
+<a href='{{post.get_absolute_url}}'>  {{post.title}}  </a>
+</br>
+    {% endfor %}
+  {% else %}
+    <li>Sorry, no athletes in this list.</li>
+  {% endif %}
+</ul> {% endcomment %}
